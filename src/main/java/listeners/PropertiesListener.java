@@ -3,6 +3,7 @@ package listeners;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
 import java.util.Properties;
 
 import javax.servlet.ServletContext;
@@ -10,7 +11,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import javassist.bytecode.Descriptor.Iterator;
 
 /**
  * Application Lifecycle Listener implementation class PropertiesListener
@@ -29,14 +29,15 @@ public class PropertiesListener implements ServletContextListener {
     /**
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
-    public void contextDestroyed(ServletContextEvent sce)  {
+    public void contextDestroyed(ServletContextEvent arg0)  {
          // TODO Auto-generated method stub
     }
 
     /**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
-    public void contextInitialized(ServletContextEvent sce)  {
+    public void contextInitialized(ServletContextEvent arg0)  {
+
         ServletContext context = arg0.getServletContext();
 
         //プロパティファイルを読み込み、アプリケーションスコープに設定する
