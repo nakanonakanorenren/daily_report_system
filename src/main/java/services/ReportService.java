@@ -11,7 +11,7 @@ import constants.JpaConst;
 import models.Report;
 import models.validators.ReportValidator;
 
-public class Reportservice extends ServiceBase {
+public class ReportService extends ServiceBase {
 
     public List<ReportView> getMinePerPage(EmployeeView employee, int page) {
 
@@ -145,5 +145,6 @@ public class Reportservice extends ServiceBase {
 
     }
 
-
 }
+
+
