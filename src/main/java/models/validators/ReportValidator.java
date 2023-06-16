@@ -3,7 +3,7 @@ package models.validators;
 import java.util.ArrayList;
 import java.util.List;
 
-import action.views.ReportView;
+import actions.views.ReportView;
 import constants.MessageConst;
 
 public class ReportValidator {

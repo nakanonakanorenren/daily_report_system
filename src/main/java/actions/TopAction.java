@@ -5,22 +5,25 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
-import action.views.EmployeeView;
-import action.views.ReportView;
+import actions.views.EmployeeView;
+import actions.views.ReportView;
 import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.JpaConst;
 import services.ReportService;
 
 public class TopAction extends ActionBase {
+
     private ReportService service;
 
     @Override
     public void process() throws ServletException, IOException {
         service = new ReportService();
+
         //メソッドを実行
         invoke();
         service.close();
+
 
     }
 
@@ -28,6 +31,7 @@ public class TopAction extends ActionBase {
      * 一覧画面を表示する
      */
     public void index() throws ServletException, IOException {
+
         EmployeeView loginEmployee = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
 
         //ログイン中の従業員が作成した日報データを、指定されたページ数の一覧画面に表示する分取得する
@@ -41,7 +45,6 @@ public class TopAction extends ActionBase {
         putRequestScope(AttributeConst.REP_COUNT, myReportsCount); //ログイン中の従業員が作成した日報の数
         putRequestScope(AttributeConst.PAGE, page); //ページ数
         putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
-
         //セッションにフラッシュメッセージが設定されている場合はリクエストスコープに移し替え、セッションからは削除する
         String flush = getSessionScope(AttributeConst.FLUSH);
         if (flush != null) {
@@ -52,6 +55,4 @@ public class TopAction extends ActionBase {
         //一覧画面を表示
         forward(ForwardConst.FW_TOP_INDEX);
     }
-
-
 }

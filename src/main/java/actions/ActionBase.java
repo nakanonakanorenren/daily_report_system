@@ -16,6 +16,7 @@ import constants.ForwardConst;
 import constants.PropertyConst;
 
 public abstract class ActionBase {
+
     protected ServletContext context;
     protected HttpServletRequest request;
     protected HttpServletResponse response;
@@ -229,4 +230,6 @@ public abstract class ActionBase {
     protected <R> R getContextScope(PropertyConst key) {
         return (R) context.getAttribute(key.getValue());
     }
+
+
 }

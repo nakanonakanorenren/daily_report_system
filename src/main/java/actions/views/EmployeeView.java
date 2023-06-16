@@ -1,6 +1,5 @@
-package action.views;
+package actions.views;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -13,32 +12,32 @@ import lombok.Setter;
 @NoArgsConstructor //引数なしコンストラクタを自動生成する(Lombok)
 @AllArgsConstructor //全てのクラスフィールドを引数にもつ引数ありコンストラクタを自動生成する(Lombok)
 
-public class ReportView {
+public class EmployeeView {
 
     private Integer id;
 
     /**
-     * 日報を登録した従業員
+     * 社員番号
      */
-    private EmployeeView employee;
+    private String code;
 
     /**
-     * いつの日報かを示す日付
+     * 氏名
      */
-    private LocalDate reportDate;
+    private String name;
 
     /**
-     * 日報のタイトル
+     * パスワード
      */
-    private String title;
+    private String password;
 
     /**
-     * 日報の内容
+     * 管理者権限があるかどうか（一般：0、管理者：1）
      */
-    private String content;
+    private Integer adminFlag;
 
     /**
-     * 登録日時
+     *登録日時
      */
     private LocalDateTime createdAt;
 
@@ -46,5 +45,10 @@ public class ReportView {
      * 更新日時
      */
     private LocalDateTime updatedAt;
+
+    /**
+     * 削除された従業員かどうか（現役：0、削除済み：1）
+     */
+    private Integer deleteFlag;
 
 }
